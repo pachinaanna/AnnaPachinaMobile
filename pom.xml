@@ -9,7 +9,7 @@
     <version>1.0-SNAPSHOT</version>
 
     <properties>
-         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
     <dependencies>
@@ -36,7 +36,8 @@
                         <suiteXmlFile>${suite.file}</suiteXmlFile>
                     </suiteXmlFiles>
                     <systemPropertyVariables>
-                        <ts.appium>http://localhost:4723/wd/hub</ts.appium>
+                        <ts.appium>NOTNULL</ts.appium>
+<!--                        <ts.appium>http://localhost:4723/wd/hub</ts.appium>-->
                     </systemPropertyVariables>
                 </configuration>
             </plugin>
@@ -53,6 +54,42 @@
 
     <profiles>
         <profile>
+            <id>cloudNative</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <properties>
+                <suite.file>src/test/resources/cloudNativeTNG.xml</suite.file>
+            </properties>
+        </profile>
+        <profile>
+            <id>cloudWeb</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <suite.file>src/test/resources/cloudWebTNG.xml</suite.file>
+            </properties>
+        </profile>
+        <profile>
+            <id>cloudIOSWeb</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <properties>
+                <suite.file>src/test/resources/cloudIOSWebTNG.xml</suite.file>
+            </properties>
+        </profile>
+        <profile>
+            <id>cloudIOSNative</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <properties>
+                <suite.file>src/test/resources/cloudIOSNativeTNG.xml</suite.file>
+            </properties>
+        </profile>
+        <profile>
             <id>native</id>
             <activation>
                 <activeByDefault>false</activeByDefault>
@@ -61,17 +98,15 @@
                 <suite.file>src/test/resources/nativeTNG.xml</suite.file>
             </properties>
         </profile>
-
         <profile>
             <id>web</id>
             <activation>
-                <activeByDefault>true</activeByDefault>
+                <activeByDefault>false</activeByDefault>
             </activation>
             <properties>
-                <suite.file>./src/test/resources/webTNG.xml</suite.file>
+                <suite.file>src/test/resources/webTNG.xml</suite.file>
             </properties>
         </profile>
     </profiles>
-
 
 </project>

@@ -18,8 +18,7 @@ public class AssertionWebStep extends BaseWebStep {
                 getTestProperties().getProperty("google.home.page"), "Google Home Page wasn't open");
     }
 
-    public void assertThatSearchingResultIsNotEmpty() throws NoSuchFieldException, IllegalAccessException {
-        Assert.assertNotEquals(googleSearchResultsPage.getWebElements("searchingResults").size(), 0,
-                "Searching result is empty");
+    public void assertThatSearchingResultIsNotEmpty() {
+        Assert.assertNotNull(googleSearchResultsPage.searchingResults);
     }
 }

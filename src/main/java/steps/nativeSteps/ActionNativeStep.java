@@ -23,6 +23,8 @@ public class ActionNativeStep extends BaseNativeStep {
     }
 
     public void signInAsUser(String email, String password) throws IllegalAccessException, NoSuchFieldException {
+        System.out.println(email);
+        System.out.println(password);
         signInPage.getWebElement("loginEmailField").sendKeys(email);
         signInPage.getWebElement("loginPasswordField").sendKeys(password);
         signInPage.getWebElement("signInBtn").click();
