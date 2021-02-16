@@ -20,4 +20,5 @@ public class GoogleHomePage extends WebPageObject {
         Field field = this.getClass().getDeclaredField(weName);
         field.setAccessible(true);
         return (WebElement) field.get(this);
-    }}
+    }
+}
